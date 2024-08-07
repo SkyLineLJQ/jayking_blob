@@ -7,6 +7,10 @@
 - JDK 1.8
 - MySql
 
+### 方案设计
+
+TODO
+
 ### 表设计
 
 TODO
