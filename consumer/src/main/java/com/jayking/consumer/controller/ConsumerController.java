@@ -43,6 +43,6 @@ public class ConsumerController {
 
         //采用 feign 的接口中的方法，实现对 PROVIDER-APP 服务接口的调用
         String result = providerAppClient.getProviderData();
-        return "remark, 采用 feign 声明式接口调用返回的结果" + result;
+        return "remark, 采用 feign 声明式接口调用返回的结果是:" + result;
     }
 }
