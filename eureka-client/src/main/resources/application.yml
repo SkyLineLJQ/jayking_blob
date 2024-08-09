@@ -4,6 +4,12 @@ spring:
   profiles:
     active: server1
   #  application-server1.yml配置文件如下：
+  # mysql 属性配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jayking_works
+    username: root
+    password: 123456
 server:
   port: 8762
 eureka:
@@ -24,3 +30,14 @@ eureka:
     register-with-eureka: true
     # 是否需要从 eureka 中抓取路径
     fetch-registry: true
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.springms: DEBUG
