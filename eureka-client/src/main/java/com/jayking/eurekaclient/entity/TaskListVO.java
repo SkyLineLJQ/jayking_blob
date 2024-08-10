@@ -25,10 +25,9 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class TaskListVO {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     @Column
     private String uuid;
 

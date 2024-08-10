@@ -7,6 +7,8 @@ package com.jayking.eurekaclient.controller;
 import com.jayking.eurekaclient.entity.TaskListVO;
 import com.jayking.eurekaclient.service.TaskListService;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,7 @@ import java.util.List;
  * @since 2024-08-09 15:49
  */
 @RestController(value = "/task")
+@Slf4j
 public class TaskController {
 
     @Autowired
@@ -28,6 +31,7 @@ public class TaskController {
 
     @PostMapping("/getAllTask")
     public List<TaskListVO> findAllTask(){
+        log.info("start query all task...");
         List<TaskListVO> res = taskListService.findAllTask();
         return res;
     }
