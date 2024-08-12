@@ -18,8 +18,8 @@ import java.util.List;
  */
 public interface TaskMapper {
 
-    @Select("select * from jayking_works.tb_task where name = #{name}")
-    TaskListVO findTaskListByName(String name);
+    @Select("select * from jayking_works.tb_task where name = #{taskName}")
+    List<TaskListVO> findTaskListByName(String taskName);
 
     @Select("SELECT * FROM jayking_works.tb_task")
     List<TaskListVO> findAllTask();

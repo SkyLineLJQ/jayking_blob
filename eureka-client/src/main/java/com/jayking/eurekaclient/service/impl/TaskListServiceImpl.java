@@ -8,6 +8,8 @@ import com.jayking.eurekaclient.entity.TaskListVO;
 import com.jayking.eurekaclient.mapper.TaskMapper;
 import com.jayking.eurekaclient.service.TaskListService;
 
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,14 +23,15 @@ import javax.annotation.Resource;
  * @since 2024-08-09 15:46
  */
 @Service
+@Slf4j
 public class TaskListServiceImpl implements TaskListService {
     @Resource
     TaskMapper taskMapper;
 
     @Override
-    public TaskListVO findTaskListByName(String name) {
-        TaskListVO result = taskMapper.findTaskListByName(name);
-        return null;
+    public List<TaskListVO> findTaskListByName(String name) {
+        List<TaskListVO> result = taskMapper.findTaskListByName(name);
+        return result;
     }
 
     @Override

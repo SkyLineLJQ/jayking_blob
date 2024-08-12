@@ -87,7 +87,7 @@
     <loggers>
 
         <!--过滤掉spring、mybatis、kafka的一些无用的DEBUG信息-->
-        <logger name="org.mybatis" level="info" additivity="false">
+        <logger name="org.mybatis" level="info" additivity="true">
             <AppenderRef ref="Console"/>
         </logger>
         <logger name="org.springframework" level="info" additivity="false">

@@ -33,6 +33,7 @@ eureka:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   level:
@@ -40,5 +41,7 @@ logging:
     org.hibernate: INFO
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.springms: DEBUG
+    com.springs: DEBUG
+    org.mybatis: DEBUG
+    org.mybatis.spring: DEBUG
   config: classpath:log4j2.xml

@@ -15,7 +15,7 @@ import java.util.List;
  * @since 2024-08-09 15:45
  */
 public interface TaskListService {
-    TaskListVO findTaskListByName(String name);
+    List<TaskListVO> findTaskListByName(String name);
 
     List<TaskListVO> findAllTask();
 }
