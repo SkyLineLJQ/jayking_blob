@@ -4,7 +4,10 @@
 
 package com.jayking.consumer.service;
 
+import requestVo.TaskRequestVo;
+
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @FeignClient("SERVICE-SUPPORT")
 public interface ProviderAppClient {
-    @RequestMapping(value = "/support?name=DDD",method = RequestMethod.GET)
+    @RequestMapping(value = "/support?name=DDD", method = RequestMethod.GET)
     String getProviderData();
+
+    @RequestMapping(value = "/task/getTaskByName", method = RequestMethod.POST)
+    Object getTaskByName(@RequestBody TaskRequestVo requestVo);
 }

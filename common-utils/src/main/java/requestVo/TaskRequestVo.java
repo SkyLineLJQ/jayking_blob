@@ -2,20 +2,20 @@
  * Copyright (c) Huawei Technologies Co., Ltd. 2024-2024. All rights reserved.
  */
 
-package com.jayking.eurekaclient.requestVo;
+package requestVo;
 
 import lombok.Data;
 
 import java.util.Date;
 
 /**
- * 请求体
+ * req
  *
  * @author l00627837
- * @since 2024-08-12 20:50
+ * @since 2024-08-14 10:46
  */
 @Data
-public class TaskListRequest {
+public class TaskRequestVo {
     private String name;
 
     private String status;

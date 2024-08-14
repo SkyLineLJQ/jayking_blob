@@ -6,7 +6,11 @@ package com.jayking.consumer.controller;
 
 import com.jayking.consumer.service.ProviderAppClient;
 
+import requestVo.TaskRequestVo;
+import responseVo.ResponseRest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -44,5 +48,11 @@ public class ConsumerController {
         //采用 feign 的接口中的方法，实现对 PROVIDER-APP 服务接口的调用
         String result = providerAppClient.getProviderData();
         return "remark, 采用 feign 声明式接口调用返回的结果是:" + result;
+    }
+
+    @RequestMapping("/getTaskListByName/")
+    public ResponseRest getTaskListByName(@RequestBody TaskRequestVo taskRequest) {
+        Object result = providerAppClient.getTaskByName(taskRequest);
+        return ResponseRest.success(result);
     }
 }
