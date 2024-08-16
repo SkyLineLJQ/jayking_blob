@@ -49,4 +49,11 @@ public class TaskListVO {
 
     @Column
     private String taskType;
+
+    @Column
+    private boolean finish;
+
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date createDate;
 }

@@ -6,6 +6,10 @@ package com.jayking.eurekaclient.mapper;
 
 import com.jayking.eurekaclient.entity.TaskListVO;
 
+import requestVo.TaskRequestAdditionVo;
+import requestVo.TaskRequestVo;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -23,4 +27,15 @@ public interface TaskMapper {
 
     @Select("SELECT * FROM jayking_works.tb_task")
     List<TaskListVO> findAllTask();
+
+
+    List<TaskListVO> findAllTaskByCondition(TaskRequestVo taskRequestVo);
+
+    @Select("select * from jayking_works.tb_task where uuid = #{uuid}")
+    TaskListVO findTaskByUuid(TaskRequestVo taskRequestVo);
+
+    void saveOrUpdateTask(TaskRequestVo taskRequestVo);
+
+
+    void deleteTaskByUuids(TaskRequestAdditionVo taskRequestAdditionVo);
 }

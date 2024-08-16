@@ -55,4 +55,11 @@ public class ConsumerController {
         Object result = providerAppClient.getTaskByName(taskRequest);
         return ResponseRest.success(result);
     }
+
+    @RequestMapping("/getTaskListByCondition/")
+    public ResponseRest getTaskListByCondition(@RequestBody TaskRequestVo taskRequest) {
+        Object result = providerAppClient.getTaskByCondition(taskRequest);
+        return ResponseRest.success(result);
+    }
+
 }

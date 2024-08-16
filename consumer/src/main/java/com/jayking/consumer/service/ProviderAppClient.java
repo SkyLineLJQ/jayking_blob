@@ -4,6 +4,7 @@
 
 package com.jayking.consumer.service;
 
+import requestVo.TaskRequestAdditionVo;
 import requestVo.TaskRequestVo;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -24,4 +25,16 @@ public interface ProviderAppClient {
 
     @RequestMapping(value = "/task/getTaskByName", method = RequestMethod.POST)
     Object getTaskByName(@RequestBody TaskRequestVo requestVo);
+
+    @RequestMapping(value = "/task/getTaskByCondition", method = RequestMethod.POST)
+    Object getTaskByCondition(@RequestBody TaskRequestVo requestVo);
+
+    @RequestMapping(value = "/task/geTaskDetailsById", method = RequestMethod.POST)
+    Object getTaskDetailById(@RequestBody TaskRequestVo requestVo);
+
+    @RequestMapping(value = "/task/insertOrUpdateTask", method = RequestMethod.POST)
+    Object insertOrUpdateTask(@RequestBody TaskRequestVo requestVo);
+
+    @RequestMapping(value = "/task/batchDeleteTaskByUuids", method = RequestMethod.POST)
+    Object batchDeleteTaskByUuids(@RequestBody TaskRequestAdditionVo requestVo);
 }

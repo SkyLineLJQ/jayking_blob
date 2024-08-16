@@ -8,6 +8,7 @@ import com.jayking.eurekaclient.entity.TaskListVO;
 import com.jayking.eurekaclient.service.TaskListService;
 
 import lombok.extern.slf4j.Slf4j;
+import requestVo.TaskRequestAdditionVo;
 import requestVo.TaskRequestVo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,30 @@ public class TaskController {
         log.info("start query task by name..." + taskRequest.toString());
         List<TaskListVO> res = taskListService.findTaskListByName(taskRequest.getName());
         return res;
+    }
+
+    @PostMapping("/getTaskByCondition")
+    public List<TaskListVO> findTaskByCondition(@RequestBody TaskRequestVo taskRequest) {
+        log.info("start query task by name..." + taskRequest.toString());
+        List<TaskListVO> res = taskListService.findAllTaskByCondition(taskRequest);
+        return res;
+    }
+
+    @PostMapping("/geTaskDetailsById")
+    public TaskListVO findTaskDetailsById(@RequestBody TaskRequestVo taskRequestVo){
+        log.info("start to query task by uuid:" + taskRequestVo.getUuid());
+        return taskListService.findTaskByUuid(taskRequestVo);
+    }
+
+    @PostMapping("/insertOrUpdateTask")
+    public int insertOrUpdateTask(@RequestBody TaskRequestVo taskRequestVo){
+        log.info("start to insert or update task:" + taskRequestVo.toString());
+        return taskListService.saveOrUpdateTask(taskRequestVo);
+    }
+
+    @PostMapping("/batchDeleteTaskByUuids")
+    public int batchDeleteTaskByUuids(@RequestBody TaskRequestAdditionVo taskRequestAdditionVo){
+        log.info("start to batch delete task:" + taskRequestAdditionVo.toString());
+        return taskListService.batchDeleteTaskByUuid(taskRequestAdditionVo);
     }
 }

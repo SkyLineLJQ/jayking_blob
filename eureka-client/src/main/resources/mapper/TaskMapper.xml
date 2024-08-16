@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jayking.eurekaclient.mapper.TaskMapper">
+
+    <select id="findAllTaskByCondition" resultType="com.jayking.eurekaclient.entity.TaskListVO">
+        SELECT * FROM tb_task
+        <where>
+            <if test="name != null and name != ''">
+                AND name = #{name}
+            </if>
+            <if test="status != null and status != ''">
+                AND status = #{status}
+            </if>
+            <if test="dueDate != null">
+                AND due_date = #{dueDate}
+            </if>
+            <if test="priority != null and priority != ''">
+                AND priority = #{priority}
+            </if>
+            <if test="finish != null and finish != ''">
+                AND finish = #{finish}
+            </if>
+            AND 1 = 1
+        </where>
+    </select>
+
+    <insert id="saveOrUpdateTask" parameterType="requestVo.TaskRequestVo">
+        INSERT INTO tb_task (uuid, name, status, due_date, priority, mark, task_type, finish, create_date)
+        VALUES (#{uuid}, #{name}, #{status}, #{dueDate}, #{priority}, #{mark}, #{taskType}, #{finish}, now())
+        ON DUPLICATE KEY UPDATE name      = #{name},
+                                status    = #{status},
+                                due_date  = #{dueDate},
+                                priority  = #{priority},
+                                mark      = #{mark},
+                                task_type = #{taskType},
+                                finish    = #{finish};
+    </insert>
+
+    <delete id="deleteTaskByUuids" parameterType="requestVo.TaskRequestAdditionVo">
+        DELETE FROM tb_task where uuid in
+        <foreach item="uuid" collection="uuidList" open="(" separator="," close=")">
+            #{uuid}
+        </foreach>
+    </delete>
+
+</mapper>

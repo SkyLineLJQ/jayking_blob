@@ -6,6 +6,9 @@ package com.jayking.eurekaclient.service;
 
 import com.jayking.eurekaclient.entity.TaskListVO;
 
+import requestVo.TaskRequestAdditionVo;
+import requestVo.TaskRequestVo;
+
 import java.util.List;
 
 /**
@@ -18,4 +21,12 @@ public interface TaskListService {
     List<TaskListVO> findTaskListByName(String name);
 
     List<TaskListVO> findAllTask();
+
+    List<TaskListVO> findAllTaskByCondition(TaskRequestVo taskRequestVo);
+
+    TaskListVO findTaskByUuid(TaskRequestVo taskRequestVo);
+
+    int saveOrUpdateTask(TaskRequestVo taskRequestVo);
+
+    int batchDeleteTaskByUuid(TaskRequestAdditionVo taskRequestAdditionVo);
 }

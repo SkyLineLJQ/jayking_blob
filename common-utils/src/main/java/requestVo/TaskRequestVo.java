@@ -16,11 +16,19 @@ import java.util.Date;
  */
 @Data
 public class TaskRequestVo {
+    private String uuid;
+
     private String name;
 
     private String status;
 
-    private Date dueData;
+    private Date dueDate;
 
     private String priority;
+
+    private String mark;
+
+    private boolean finish;
+
+    private String taskType;
 }
