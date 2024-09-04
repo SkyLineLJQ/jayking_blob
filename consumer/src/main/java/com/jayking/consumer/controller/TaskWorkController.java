@@ -38,7 +38,7 @@ public class TaskWorkController {
      * @param taskRequest req
      * @return res
      */
-    @RequestMapping("/getTaskListByName/")
+    @RequestMapping("/getTaskListByName")
     public ResponseRest getTaskListByName(@RequestBody TaskRequestVo taskRequest) {
         log.info("start query task list by name:" + taskRequest.toString());
         Object result = providerAppClient.getTaskByName(taskRequest);
@@ -51,7 +51,7 @@ public class TaskWorkController {
      * @param taskRequestVo taskVo
      * @return res
      */
-    @RequestMapping(value = "/getAllTaskList/", method = RequestMethod.POST)
+    @RequestMapping(value = "/getAllTaskList", method = RequestMethod.POST)
     public ResponseRest getAllTaskList(@RequestBody TaskRequestVo taskRequestVo) {
         log.info("start query task list, and query params is:" + taskRequestVo.toString());
         Object result = providerAppClient.getTaskByCondition(taskRequestVo);
@@ -64,7 +64,7 @@ public class TaskWorkController {
      * @param taskRequestVo taskVo
      * @return res
      */
-    @RequestMapping(value = "/getTaskDetailById/", method = RequestMethod.POST)
+    @RequestMapping(value = "/getTaskDetailById", method = RequestMethod.POST)
     public ResponseRest getTaskDetailById(@RequestBody TaskRequestVo taskRequestVo) {
         log.info("start query task list, and query params uuid is:" + taskRequestVo.getUuid());
         Object result = providerAppClient.getTaskDetailById(taskRequestVo);
@@ -77,7 +77,7 @@ public class TaskWorkController {
      * @param taskRequestVo taskVo
      * @return res
      */
-    @RequestMapping(value = "/insertOrUpdateTask/", method = RequestMethod.POST)
+    @RequestMapping(value = "/insertOrUpdateTask", method = RequestMethod.POST)
     public ResponseRest insertOrUpdateTASK(@RequestBody TaskRequestVo taskRequestVo) {
         log.info("start insert or update task:" + taskRequestVo.toString());
         Object result = providerAppClient.insertOrUpdateTask(taskRequestVo);
@@ -90,7 +90,7 @@ public class TaskWorkController {
      * @param taskRequestAdditionVo taskVo
      * @return res
      */
-    @RequestMapping(value = "/batchDeleteTaskByUuids/", method = RequestMethod.POST)
+    @RequestMapping(value = "/batchDeleteTaskByUuids", method = RequestMethod.POST)
     public ResponseRest batchDeleteTaskByUuids(@RequestBody TaskRequestAdditionVo taskRequestAdditionVo) {
         log.info("start batch delete task:" + taskRequestAdditionVo.toString());
         Object result = providerAppClient.batchDeleteTaskByUuids(taskRequestAdditionVo);
