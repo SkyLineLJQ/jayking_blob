@@ -25,7 +25,7 @@ public interface TaskMapper {
     @Select("select * from jayking_works.tb_task where name = #{taskName}")
     List<TaskListVO> findTaskListByName(String taskName);
 
-    @Select("SELECT * FROM jayking_works.tb_task")
+    @Select("SELECT * FROM jayking_works.tb_task ORDER BY create_date DESC")
     List<TaskListVO> findAllTask();
 
 

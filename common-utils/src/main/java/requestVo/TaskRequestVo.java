@@ -28,7 +28,7 @@ public class TaskRequestVo {
 
     private String mark;
 
-    private boolean finish;
+    private Boolean finish;
 
     private String taskType;
 }
